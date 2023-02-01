@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #0d0d0d;
+  height: 8rem;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  border-radius: 1px;
+}
+
+.header strong {
+  color: green;
+  font-size: 2rem;
+}
