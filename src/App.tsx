@@ -1,17 +1,11 @@
-import { Header } from "./components/Header";
-import { Contato } from "./components/Contato";
-import { NewContact } from "./components/NewContact";
-import { Login } from "./components/Login";
-
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./Router";
+import "./styles/global.css";
 
 export function App() {
   return (
-    <div>
-      <Header />
-      <main>
-        <Login />
-      </main>
-    </div>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 }

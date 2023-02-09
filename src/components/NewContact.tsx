@@ -2,8 +2,6 @@ import Button from "@mui/material/Button/Button";
 import SaveIcon from "@mui/icons-material/Save";
 import TextField from "@mui/material/TextField";
 
-import styles from "./NewContact.module.css";
-
 export function NewContact() {
   function handleCreateNewContact() {
     console.log("Envio de contato!");

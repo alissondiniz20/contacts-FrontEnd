@@ -6,8 +6,6 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 
-import { DialogAdd } from "./DialogAddContact";
-
 import styles from "./Contato.module.css";
 
 const contatos = [0, 1, 2];
@@ -32,10 +30,7 @@ export function Contato() {
             <ListItemButton onClick={handleContact}>
               <ListItemAvatar>
                 <Avatar>
-                  <img
-                    src="/src/assets/imgperfil.svg"
-                    alt="Imagem do contato"
-                  />
+                  <img src="/src/assets/imgperfil.svg" alt="" />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
@@ -44,9 +39,6 @@ export function Contato() {
         );
       })}
       <br />
-      <div className={styles.add}>
-        <DialogAdd />
-      </div>
     </List>
   );
 }

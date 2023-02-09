@@ -1,0 +1,14 @@
+/* :root {
+  --white: #ffffff;
+  --purple-800: #8a2be2;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+}
