@@ -1,4 +1,4 @@
-import { Home } from "@mui/icons-material";
+import { Home } from "./pages/Home/index";
 import { Route, Routes } from "react-router-dom";
 import { Autenticacao } from "./pages/Autenticacao";
 import { DefaultLayout } from "./layouts/DefaultLayout";
@@ -8,7 +8,7 @@ export function AppRouter() {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Autenticacao />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
         </Route>
       </Route>
     </Routes>

@@ -12,9 +12,10 @@ export function Login() {
         alignItems="center"
         justifyContent="center"
         sx={{
+          padding: 8,
           backgroundColor: "#FFFAFA",
-          width: 300,
-          height: 300,
+          width: 350,
+          height: 350,
         }}
         border={1}
         borderRadius={1}
@@ -36,6 +37,19 @@ export function Login() {
           color="secondary"
         />
         <Button
+          variant="contained"
+          size="small"
+          sx={{
+            color: "#FFFFFF",
+            backgroundColor: "#8A2BE2",
+            ":hover": {
+              backgroundColor: "#720cd1",
+            },
+          }}
+        >
+          Acessar
+        </Button>
+        <Button
           justify-content=""
           href="esqueci-minha-senha"
           variant="text"
@@ -43,9 +57,6 @@ export function Login() {
           color="secondary"
         >
           Esqueci minha senha
-        </Button>
-        <Button variant="contained" size="small" color="secondary">
-          Acessar
         </Button>
       </Box>
     </>
