@@ -25,8 +25,11 @@ export function MenuLateral() {
           backgroundColor: "transparent",
           "&:hover": {
             backgroundColor: "#FFA051",
+            color: "#000",
+            cursor: "pointer",
           },
           boxShadow: 3,
+          borderRadius: 1,
         }}
       >
         Menu em desenvolvimento
