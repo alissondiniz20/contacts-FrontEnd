@@ -1,6 +1,4 @@
 import { Box } from "@mui/material";
-
-import SearchBar from "@mkyy/mui-search-bar";
 import { CabecalhoHome } from "./CabecalhoHome";
 import { ListaHome } from "./ListaHome";
 
@@ -16,7 +14,6 @@ export function ModalHome() {
         backgroundColor: "#e5e7eb",
       }}
     >
-      {/* <SearchBar width={"100%"} /> */}
       <CabecalhoHome />
       <ListaHome />
     </Box>

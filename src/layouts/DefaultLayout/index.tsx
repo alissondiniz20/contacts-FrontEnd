@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../../components/Header";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 export function DefaultLayout() {
   return (
@@ -8,12 +7,11 @@ export function DefaultLayout() {
       alignContent="center"
       justifyContent="center"
       sx={{
-        backgroundColor: "black",
+        backgroundColor: "#e5e7eb",
         width: "100%",
         height: "100%",
       }}
     >
-      <Header />
       <Outlet />
     </Box>
   );

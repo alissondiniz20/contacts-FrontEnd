@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { CabecalhoHome } from "../../components/CabecalhoHome";
+import { MenuLateral } from "../../components/MenuLateral";
 import { ModalHome } from "../../components/ModalHome";
 
 export function Home() {
@@ -20,17 +21,7 @@ export function Home() {
         }}
       >
         {/* TESTE BOX PAI */}
-        <Box
-          display="flex"
-          flexDirection="column"
-          sx={{
-            backgroundColor: "#131047" /*"#2c2966"*/,
-            width: "20%",
-            height: "100%",
-          }}
-        >
-          TESTE BOX LATERAL
-        </Box>
+        <MenuLateral />
         <Box
           sx={{
             display: "flex",

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 
 import SearchBar from "@mkyy/mui-search-bar";
+import { Botao } from "./Botao";
 
 export function CabecalhoHome() {
   const [textFieldValue, setTextFieldValue] = useState("");
@@ -43,7 +44,7 @@ export function CabecalhoHome() {
         // }}
         width="80%"
       />
-      Botão
+      <Botao />
     </Box>
   );
 }
