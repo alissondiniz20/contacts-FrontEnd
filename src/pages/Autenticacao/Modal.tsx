@@ -8,7 +8,7 @@ export function Modal() {
         display="flex"
         flexDirection="column"
         sx={{
-          bgcolor: "#8A2BE2",
+          bgcolor: "#2c2966" /*"#8A2BE2"*/,
           width: 500,
           height: 550,
         }}

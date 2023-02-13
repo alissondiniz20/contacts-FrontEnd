@@ -1,5 +1,4 @@
 import { Button, TextField, Box, InputAdornment } from "@mui/material/";
-import { LockKey, EnvelopeSimple } from "phosphor-react";
 
 export function Login() {
   return (
@@ -23,7 +22,7 @@ export function Login() {
       >
         <TextField
           sx={{
-            borderColor: "#8A2BE2",
+            borderColor: "#2c2966",
           }}
           id="email"
           label="E-mail"
@@ -32,15 +31,8 @@ export function Login() {
           color="secondary"
         />
         <TextField
-          inputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <EnvelopeSimple />
-              </InputAdornment>
-            ),
-          }}
           sx={{
-            borderColor: "#8A2BE2",
+            borderColor: "#2c2966",
           }}
           type="password"
           id="senha"
@@ -54,9 +46,9 @@ export function Login() {
           size="small"
           sx={{
             color: "#FFFFFF",
-            backgroundColor: "#8A2BE2",
+            backgroundColor: "#2c2966" /*"#8A2BE2"*/,
             ":hover": {
-              backgroundColor: "#720cd1",
+              backgroundColor: "#131047" /*"#720cd1"*/,
             },
           }}
         >
@@ -66,7 +58,10 @@ export function Login() {
           href="esqueci-minha-senha"
           variant="text"
           size="small"
-          color="secondary"
+          sx={{
+            color: "#131047",
+          }}
+          // color="secondary"
         >
           Esqueci minha senha
         </Button>

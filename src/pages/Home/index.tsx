@@ -1,44 +1,68 @@
-import * as React from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
+import { Box } from "@mui/material";
+import { CabecalhoHome } from "../../components/CabecalhoHome";
+import { ModalHome } from "../../components/ModalHome";
 
-import styles from "./Contato.module.css";
-
-const contatos = [0, 1, 2];
-
-export function Contato() {
-  const [checked, setChecked] = React.useState([1]);
-
-  function handleContact() {
-    console.log("oi");
-  }
-
-  function handleOpenDialog() {
-    console.log("oi dialog");
-  }
-
+export function Home() {
   return (
-    <List dense sx={{ width: "100%", bgcolor: "background.paper" }}>
-      {contatos.map((value) => {
-        const labelId = `checkbox-list-secondary-label-${value}`;
-        return (
-          <ListItem key={value} disablePadding>
-            <ListItemButton onClick={handleContact}>
-              <ListItemAvatar>
-                <Avatar>
-                  <img src="/src/assets/imgperfil.svg" alt="" />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-            </ListItemButton>
-          </ListItem>
-        );
-      })}
-      <br />
-    </List>
+    <>
+      <Box
+        maxWidth="100%"
+        maxHeight="100%"
+        display="flex"
+        alignItems="flex-start"
+        justifyContent="center"
+        flexDirection="row"
+        sx={{
+          backgroundColor: "#FFFFFF",
+          // width: "100%",
+          height: 550,
+          color: "#000000",
+        }}
+      >
+        {/* TESTE BOX PAI */}
+        <Box
+          display="flex"
+          flexDirection="column"
+          sx={{
+            backgroundColor: "#131047" /*"#2c2966"*/,
+            width: "20%",
+            height: "100%",
+          }}
+        >
+          TESTE BOX LATERAL
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Box
+            display="flex"
+            flexDirection="column"
+            gap={1}
+            sx={{
+              backgroundColor: "#2c2966",
+              padding: 5,
+              color: "white",
+              width: "100%",
+            }}
+          >
+            <h1>Contatos</h1>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              height: "100%",
+              backgroundColor: "#f5f5f5",
+            }}
+          >
+            <ModalHome />
+          </Box>
+        </Box>
+      </Box>
+    </>
   );
 }

@@ -6,11 +6,11 @@ import { DefaultLayout } from "./layouts/DefaultLayout";
 export function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Autenticacao />}>
-          <Route path="/home" element={<Home />} />
-        </Route>
-      </Route>
+      {/* <Route path="/" element={<DefaultLayout />}> */}
+      {/* <Route path="/" element={<Autenticacao />}> */}
+      <Route path="/" element={<Home />} />
+      {/* </Route> */}
+      {/* </Route> */}
     </Routes>
   );
 }
