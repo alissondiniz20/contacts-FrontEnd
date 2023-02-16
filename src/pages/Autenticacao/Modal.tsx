@@ -5,23 +5,27 @@ export function Modal() {
   return (
     <>
       <Box
-        display="flex"
-        flexDirection="column"
         sx={{
-          bgcolor: "#2c2966" /*"#8A2BE2"*/,
+          display: "flex",
+          flexDirection: "column",
+          bgcolor: "#2c2966",
           width: 500,
           height: 550,
+          borderTopLeftRadius: 5,
+          borderBottomLeftRadius: 5,
         }}
       ></Box>
       <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
         sx={{
-          backgroundColor: "#FFFAFA",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
           width: 810,
           height: 550,
+          backgroundColor: "#FFFAFA",
+          borderTopRightRadius: 5,
+          borderBottomRightRadius: 5,
         }}
       >
         <Login />

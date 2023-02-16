@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { CabecalhoHome } from "./CabecalhoHome";
-import { ListaHome } from "./ListaHome";
+import { SearchContato } from "./CabecalhoHome";
+import { ListaContatos } from "./ListaContatos";
 
 export function ModalHome() {
   return (
@@ -14,8 +14,8 @@ export function ModalHome() {
         backgroundColor: "#e5e7eb",
       }}
     >
-      <CabecalhoHome />
-      <ListaHome />
+      <SearchContato />
+      <ListaContatos />
     </Box>
   );
 }

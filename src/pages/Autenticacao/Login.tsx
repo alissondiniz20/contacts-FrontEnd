@@ -22,24 +22,32 @@ export function Login() {
       >
         <TextField
           sx={{
-            borderColor: "#2c2966",
+            "& .MuiInputLabel-root": { color: "#2c2966" },
+            "& .MuiOutlinedInput-root.Mui-focused": {
+              "& > fieldset": {
+                borderColor: "#2c2966",
+              },
+            },
           }}
           id="email"
           label="E-mail"
           variant="outlined"
           size="small"
-          color="secondary"
         />
         <TextField
           sx={{
-            borderColor: "#2c2966",
+            "& .MuiInputLabel-root": { color: "#2c2966" },
+            "& .MuiOutlinedInput-root.Mui-focused": {
+              "& > fieldset": {
+                borderColor: "#2c2966",
+              },
+            },
           }}
           type="password"
           id="senha"
           label="Senha"
           variant="outlined"
           size="small"
-          color="secondary"
         />
         <Button
           variant="contained"

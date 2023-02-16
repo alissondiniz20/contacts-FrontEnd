@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-export function ListaHome() {
+export function ListaContatos() {
   return (
     <Box>
       <Box

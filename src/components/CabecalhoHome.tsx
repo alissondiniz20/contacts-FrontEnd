@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Box } from "@mui/material";
-
-import SearchBar from "@mkyy/mui-search-bar";
 import { Botao } from "./Botao";
+import { Box } from "@mui/material";
+import SearchBar from "@mkyy/mui-search-bar";
 
-export function CabecalhoHome() {
+export function SearchContato() {
   const [textFieldValue, setTextFieldValue] = useState("");
 
   // const handleSearch = (labelOptionValue) => {
@@ -26,7 +25,7 @@ export function CabecalhoHome() {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        maxWidth: "100%",
+        // maxWidth: "100%",
         backgroundColor: "#f5f5f5",
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
@@ -36,12 +35,12 @@ export function CabecalhoHome() {
       <SearchBar
         value={textFieldValue}
         onChange={(e) => setTextFieldValue(e)}
-        // style={{
-        //   display: "flex",
-        //   flexDirection: "row",
-        //   justifyContent: "space-between",
-        //   alignItems: "center",
-        // }}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between !important ",
+          alignItems: "center",
+        }}
         width="80%"
       />
       <Botao />

@@ -5,13 +5,17 @@ export function Autenticacao() {
   return (
     <>
       <Box
-        display="flex"
-        flexDirection="row"
-        justifyContent="center"
-        alignItems="center"
         sx={{
-          bgcolor: "#29292E",
-          height: 550,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          bgcolor: "#29292E" /**excluir */,
+          width: "5rem auto",
+          height: "calc(100vh - 10rem)",
+          // height: 550,
+          position: "fixed",
+          mt: 10,
         }}
       >
         <Modal />
