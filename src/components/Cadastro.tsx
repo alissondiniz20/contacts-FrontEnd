@@ -9,6 +9,7 @@ export function Cadastro() {
           p: 3,
           backgroundColor: "white",
           borderRadius: 2,
+          boxShadow: 2,
         }}
       >
         <Box
