@@ -1,12 +1,38 @@
-import { Button, TextField, Box } from "@mui/material/";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { Button, TextField, Box, Alert } from "@mui/material/";
+
 export function Login() {
-  let navigate = useNavigate();
+  const [user, setUser] = useState("");
+  const [senha, setSenha] = useState("");
+  const [userInvalido, setUserInvalido] = useState(false);
+  const [senhaInvalida, setSenhaInvalida] = useState(false);
+
+  const navigate = useNavigate();
 
   function loginNavigate() {
     navigate("/contatos");
   }
+
+  const Acessar = () => {
+    if (user === "" || user === undefined) {
+      setUserInvalido(true);
+      console.log("user inválido!");
+
+      return <Alert severity="error">Usuário ou senha inválidos!</Alert>;
+    } else if (senha === "" || senha === undefined) {
+      setSenhaInvalida(true);
+
+      console.log("senha inválida!");
+      return <Alert severity="error">Usuário ou senha inválidos!</Alert>;
+    }
+    //  else {
+    //   user === "contato" && senha === "123456";
+    // }
+
+    return loginNavigate();
+  };
 
   return (
     <>
@@ -36,10 +62,16 @@ export function Login() {
               },
             },
           }}
+          value={user}
+          onChange={(e) => {
+            setUser(e.target.value);
+          }}
+          required
           id="email"
           label="E-mail"
           variant="outlined"
           size="small"
+          error={userInvalido}
         />
         <TextField
           sx={{
@@ -50,14 +82,22 @@ export function Login() {
               },
             },
           }}
+          value={senha}
           type="password"
+          onChange={(e) => {
+            setSenha(e.target.value);
+          }}
+          required
           id="senha"
           label="Senha"
           variant="outlined"
           size="small"
+          error={senhaInvalida}
         />
         <Button
-          onClick={loginNavigate}
+          onClick={() => {
+            Acessar();
+          }}
           variant="contained"
           size="small"
           sx={{
@@ -70,17 +110,16 @@ export function Login() {
         >
           Acessar
         </Button>
-        <Button
+        {/* <Button
           href="esqueci-minha-senha"
           variant="text"
           size="small"
           sx={{
             color: "#131047",
           }}
-          // color="secondary"
         >
           Esqueci minha senha
-        </Button>
+        </Button> */}
       </Box>
     </>
   );
