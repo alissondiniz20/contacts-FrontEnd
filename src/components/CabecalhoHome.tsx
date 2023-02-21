@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { Botao } from "./Botao";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SearchBar from "@mkyy/mui-search-bar";
+
+import { Botao } from "./Botao";
 
 export function SearchContato() {
   const [textFieldValue, setTextFieldValue] = useState("");
-
-  // const handleSearch = (labelOptionValue) => {
-  //   console.log(labelOptionValue);
-  // };
 
   function resetSearch() {
     setTextFieldValue("");
@@ -17,33 +14,73 @@ export function SearchContato() {
   return (
     <Box
       sx={{
-        height: 50,
-        pl: 3,
-        pr: 3,
-        gap: 2,
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        // maxWidth: "100%",
-        backgroundColor: "#f5f5f5",
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-        boxShadow: 1,
+        backgroundColor: "white",
+        borderTopLeftRadius: "8vh",
+        borderTopRightRadius: "8vh",
       }}
     >
-      <SearchBar
-        value={textFieldValue}
-        onChange={(e) => setTextFieldValue(e)}
-        style={{
+      <Box
+        sx={{
+          height: 50,
+          pl: "3vh",
+          pr: "3vh",
+          gap: 2,
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-between !important ",
           alignItems: "center",
+          justifyContent: "space-between",
+          backgroundColor: "#f5f5f5",
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
+          boxShadow: 1,
         }}
-        width="80%"
-      />
-      <Botao />
+      >
+        <SearchBar
+          // value={textFieldValue}
+          // onChange={(e) => setTextFieldValue(e)}
+          // style={{
+          //   display: "flex",
+          //   flexDirection: "row",
+          //   justifyContent: "space-between !important ",
+          //   alignItems: "center",
+          //   boxShadow: 3,
+          // }}
+          width="80%"
+        />
+        <Botao />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          pt: "3vh",
+          pl: "4.5vh",
+          pr: "3vh",
+          pb: "2vh",
+        }}
+      >
+        <Typography
+          style={{
+            fontWeight: 600,
+          }}
+        >
+          Nome
+        </Typography>
+
+        <Typography
+          style={{
+            fontWeight: 600,
+          }}
+        >
+          Telefone
+        </Typography>
+      </Box>
     </Box>
   );
 }

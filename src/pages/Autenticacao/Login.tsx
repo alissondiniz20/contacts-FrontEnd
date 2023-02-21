@@ -1,6 +1,13 @@
-import { Button, TextField, Box, InputAdornment } from "@mui/material/";
+import { Button, TextField, Box } from "@mui/material/";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  let navigate = useNavigate();
+
+  function loginNavigate() {
+    navigate("/contatos");
+  }
+
   return (
     <>
       <Box
@@ -8,8 +15,8 @@ export function Login() {
           boxShadow: 3,
           padding: 5,
           backgroundColor: "#FFFAFA",
-          width: 350,
-          height: 350,
+          width: /*350*/ "50vh",
+          height: /*350*/ "50vh",
         }}
         gap={1.5}
         component="form"
@@ -50,13 +57,14 @@ export function Login() {
           size="small"
         />
         <Button
+          onClick={loginNavigate}
           variant="contained"
           size="small"
           sx={{
             color: "#FFFFFF",
-            backgroundColor: "#2c2966" /*"#8A2BE2"*/,
+            backgroundColor: "#2c2966",
             ":hover": {
-              backgroundColor: "#131047" /*"#720cd1"*/,
+              backgroundColor: "#131047",
             },
           }}
         >

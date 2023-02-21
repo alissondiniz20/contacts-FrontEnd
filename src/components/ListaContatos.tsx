@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { ItemLista } from "./ItemLista";
 
 export function ListaContatos() {
   return (
@@ -9,15 +10,26 @@ export function ListaContatos() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          height: 100,
           backgroundColor: "#ffffff",
           borderBottomLeftRadius: 8,
           borderBottomRightRadius: 8,
           boxShadow: 1,
-          gap: 1,
+          pl: 2,
+          pr: 2,
+          pb: 2,
         }}
       >
-        LISTA CONTATOS
+        <Box
+          sx={{
+            borderBottomLeftRadius: 2,
+            borderBottomRightRadius: 2,
+            boxShadow: 1,
+          }}
+        >
+          <ItemLista />
+          <ItemLista />
+          <ItemLista />
+        </Box>
       </Box>
     </Box>
   );

@@ -1,17 +1,26 @@
+import { Add } from "@mui/icons-material";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export function Botao() {
+  const navigate = useNavigate();
+
+  function handleNavigate() {
+    navigate("/cadastrar-contatos");
+  }
+
   return (
     <>
       <Button
+        onClick={handleNavigate}
         variant="contained"
+        startIcon={<Add />}
         sx={{
-          // mt: 1,
           backgroundColor: "#FFA051",
           "&:hover": {
             backgroundColor: "#fe790b",
           },
-          width: 100,
+          width: "18vh",
         }}
       >
         Adicionar

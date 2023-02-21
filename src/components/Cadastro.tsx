@@ -1,7 +1,14 @@
 import { Box, Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { Botao } from "./Botao";
 
 export function Cadastro() {
+  const navigate = useNavigate();
+
+  function handleBackNavigate() {
+    navigate("/contatos");
+  }
+
   return (
     <>
       <Box
@@ -141,6 +148,7 @@ export function Cadastro() {
           }}
         >
           <Button
+            onClick={handleBackNavigate}
             variant="outlined"
             sx={{
               width: "10vh",

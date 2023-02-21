@@ -7,11 +7,9 @@ import { CadastrarContato } from "./pages/Cadastro";
 export function AppRouter() {
   return (
     <Routes>
-      {/* <Route path="/" element={<DefaultLayout />}> */}
-      {/* <Route path="/" element={<Autenticacao />}> */}
+      <Route path="/" element={<Autenticacao />} />
       <Route path="/contatos" element={<ContatoPage />} />
       <Route path="/cadastrar-contatos" element={<CadastrarContato />} />
-      {/* </Route> */}
       {/* </Route> */}
     </Routes>
   );
