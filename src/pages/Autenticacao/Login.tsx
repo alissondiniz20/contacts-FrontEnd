@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Button, TextField, Box, Alert } from "@mui/material/";
+import { Button, TextField, Box, Alert, Stack } from "@mui/material/";
 
 export function Login() {
   const [user, setUser] = useState("");
@@ -16,22 +16,27 @@ export function Login() {
   }
 
   const Acessar = () => {
-    if (user === "" || user === undefined) {
-      setUserInvalido(true);
-      console.log("user inválido!");
+    if (user === "usuarioteste" && senha === "123456") {
+      if (user === undefined || !user) {
+        setUserInvalido(true);
 
-      return <Alert severity="error">Usuário ou senha inválidos!</Alert>;
-    } else if (senha === "" || senha === undefined) {
-      setSenhaInvalida(true);
+        return (
+          <Stack>
+            <Alert severity="error">Dados inválidos</Alert>
+          </Stack>
+        );
+      } else if (senha === undefined || !senha) {
+        setSenhaInvalida(true);
 
-      console.log("senha inválida!");
-      return <Alert severity="error">Usuário ou senha inválidos!</Alert>;
+        return (
+          <Stack>
+            <Alert severity="error">Dados inválidos</Alert>
+          </Stack>
+        );
+      }
+
+      return loginNavigate();
     }
-    //  else {
-    //   user === "contato" && senha === "123456";
-    // }
-
-    return loginNavigate();
   };
 
   return (
@@ -41,8 +46,8 @@ export function Login() {
           boxShadow: 3,
           padding: 5,
           backgroundColor: "#FFFAFA",
-          width: /*350*/ "50vh",
-          height: /*350*/ "50vh",
+          width: "50vh",
+          height: "50vh",
         }}
         gap={1.5}
         component="form"
