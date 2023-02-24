@@ -8,7 +8,7 @@ export function AppRouter() {
     <Routes>
       <Route path="/" element={<Autenticacao />} />
       <Route path="/contatos" element={<ContatoPage />} />
-      <Route path="/cadastrar-contatos" element={<CadastrarContato />} />
+      <Route path="/cadastro" element={<CadastrarContato />} />
     </Routes>
   );
 }

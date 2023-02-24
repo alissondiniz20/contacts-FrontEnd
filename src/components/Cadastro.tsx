@@ -6,7 +6,7 @@ export function Cadastro() {
   const navigate = useNavigate();
 
   function handleBackNavigate() {
-    navigate("/contatos");
+    navigate(-1);
   }
 
   return (
@@ -37,8 +37,9 @@ export function Cadastro() {
           >
             <TextField
               id="nome"
-              label="Nome*"
+              label="Nome"
               variant="outlined"
+              required
               sx={{
                 backgroundColor: "#f5f5f5",
                 "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -51,8 +52,9 @@ export function Cadastro() {
             />
             <TextField
               id="sobrenome"
-              label="Sobrenome*"
+              label="Sobrenome"
               variant="outlined"
+              required
               sx={{
                 backgroundColor: "#f5f5f5",
                 "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -74,8 +76,9 @@ export function Cadastro() {
           >
             <TextField
               id="telefone"
-              label="Telefone*"
+              label="Telefone"
               variant="outlined"
+              required
               sx={{
                 backgroundColor: "#f5f5f5",
                 "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -88,8 +91,9 @@ export function Cadastro() {
             />
             <TextField
               id="datanasci"
-              label="Data de Nascimento*"
+              label="Data de Nascimento"
               variant="outlined"
+              required
               sx={{
                 backgroundColor: "#f5f5f5",
                 "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -111,8 +115,9 @@ export function Cadastro() {
           >
             <TextField
               id="endereço"
-              label="Endereço*"
+              label="Endereço"
               variant="outlined"
+              required
               sx={{
                 backgroundColor: "#f5f5f5",
                 "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -125,8 +130,9 @@ export function Cadastro() {
             />
             <TextField
               id="email"
-              label="Email*"
+              label="Email"
               variant="outlined"
+              required
               sx={{
                 backgroundColor: "#f5f5f5",
                 "& .MuiInputLabel-root": { color: "#2c2966" },

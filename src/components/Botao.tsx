@@ -6,7 +6,7 @@ export function Botao() {
   const navigate = useNavigate();
 
   function handleNavigate() {
-    navigate("/cadastrar-contatos");
+    navigate("/cadastro");
   }
 
   return (

@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Button, TextField, Box, Alert, Stack } from "@mui/material/";
+import {
+  Button,
+  TextField,
+  Box,
+  Alert,
+  Stack,
+  Typography,
+  InputAdornment,
+} from "@mui/material/";
 
 export function Login() {
   const [user, setUser] = useState("");
@@ -43,21 +51,32 @@ export function Login() {
     <>
       <Box
         sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: 1,
+          borderColor: "#581c87",
+          backgroundColor: "#FFFAFA",
           boxShadow: 3,
           padding: 5,
-          backgroundColor: "#FFFAFA",
           width: "50vh",
           height: "50vh",
+          gap: 1.5,
         }}
-        gap={1.5}
         component="form"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        borderRadius={1}
-        borderColor="#581c87"
       >
+        <Typography
+          variant="h6"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mb: 2,
+          }}
+        >
+          Acesse seus Contatos
+        </Typography>
         <TextField
           sx={{
             "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -67,10 +86,10 @@ export function Login() {
               },
             },
           }}
-          value={user}
           onChange={(e) => {
             setUser(e.target.value);
           }}
+          value={user}
           required
           id="email"
           label="E-mail"
