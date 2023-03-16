@@ -1,11 +1,10 @@
 import { Add } from "@mui/icons-material";
 import { Grid, Button, TextField } from "@mui/material";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate /*useHistory*/ } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
-import { z } from "zod";
+import { api } from "../../lib/axios";
 
 export function Cadastro({ setContatos }: any) {
   const navigate = useNavigate();
@@ -14,31 +13,44 @@ export function Cadastro({ setContatos }: any) {
     navigate(-1);
   }
 
+  function handleConfirmFormBackNavigate() {
+    navigate("/contatos");
+  }
+
   const novaSchemaValidacaoForm = zod.object({
     nome: zod.string().min(1, "Preencha o campo Nome"),
     sobrenome: zod.string().min(1, "Preencha o campo Sobrenome"),
     telefone: zod.string().min(1, "Preencha o campo Telefone"),
-    dtnascimento: zod.string().min(1, "Preencha o campo Data de Nascimento"),
+    datanasci: zod.string().min(1, "Preencha o campo Data de Nascimento"),
     endereco: zod.string().min(1, "Preencha o campo Endereco"),
     email: zod.string().email().min(1, "Preencha o cmapo Email"),
   });
 
   type NewCycleFormData = zod.infer<typeof novaSchemaValidacaoForm>;
 
-  const { register, handleSubmit, reset } = useForm<NewCycleFormData>({
+  const { register, handleSubmit, reset, watch } = useForm<NewCycleFormData>({
     resolver: zodResolver(novaSchemaValidacaoForm),
     defaultValues: {
       nome: "",
       sobrenome: "",
       telefone: "",
-      dtnascimento: "",
+      datanasci: "",
       endereco: "",
       email: "",
     },
   });
 
-  function handleSalvar(data: NewCycleFormData) {
-    console.log(data);
+  async function handleSaveNewCreateContact(data: NewCycleFormData) {
+    try {
+      // const { nome, sobrenome, telefone, datanasci, endereco, email } = data;
+
+      /*const response =*/
+      await api.post("/contato", data).then(() => {
+        handleConfirmFormBackNavigate();
+      });
+    } catch (error) {
+      console.log(error);
+    }
 
     reset();
   }
@@ -118,7 +130,7 @@ export function Cadastro({ setContatos }: any) {
           variant="outlined"
           required
           size="small"
-          {...register("dtnascimento")}
+          {...register("datanasci" /*, { valueAsDate: true }*/)}
           sx={{
             backgroundColor: "#f5f5f5",
             "& .MuiInputLabel-root": { color: "#2c2966" },
@@ -184,11 +196,15 @@ export function Cadastro({ setContatos }: any) {
         </Grid>
         <Grid item xs={1}>
           <Button
-            onClick={handleSubmit(handleSalvar)}
+            onClick={handleSubmit(handleSaveNewCreateContact)}
             variant="contained"
             startIcon={<Add />}
             sx={{
               backgroundColor: "#FFA051",
+              "&:disabled": {
+                cursor: "not-allowed",
+                opacity: 0.6,
+              },
               "&:hover": {
                 backgroundColor: "#fe790b",
               },
