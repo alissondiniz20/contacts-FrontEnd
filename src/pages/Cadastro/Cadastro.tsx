@@ -73,7 +73,7 @@ export function Cadastro() {
   }
 
   function handleSaveOrUpdate(data: any) {
-    if (!location.state.id) {
+    if (!location?.state?.id) {
       createNewContact(data);
     } else {
       updateContact(data);
