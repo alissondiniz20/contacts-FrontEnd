@@ -1,19 +1,23 @@
 import { Add } from "@mui/icons-material";
 import { Grid, Button, TextField } from "@mui/material";
-import { useNavigate /*useHistory*/ } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
 import { api } from "../../lib/axios";
 
-export function Cadastro({ setContatos }: any) {
+export function Cadastro() {
+  const location = useLocation();
+
+  console.log(location.state);
+
   const navigate = useNavigate();
 
   function handleBackNavigate() {
     navigate(-1);
   }
 
-  function handleConfirmFormBackNavigate() {
+  function handleBackContacts() {
     navigate("/contatos");
   }
 
@@ -28,31 +32,52 @@ export function Cadastro({ setContatos }: any) {
 
   type NewCycleFormData = zod.infer<typeof novaSchemaValidacaoForm>;
 
-  const { register, handleSubmit, reset, watch } = useForm<NewCycleFormData>({
+  const { register, handleSubmit, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(novaSchemaValidacaoForm),
     defaultValues: {
-      nome: "",
-      sobrenome: "",
-      telefone: "",
-      datanasci: "",
-      endereco: "",
-      email: "",
+      nome: location?.state?.nome ?? "",
+      sobrenome: location?.state?.sobrenome ?? "",
+      telefone: location?.state?.telefone ?? "",
+      datanasci: location?.state?.datanasci ?? "",
+      endereco: location?.state?.endereco ?? "",
+      email: location?.state?.email ?? "",
     },
   });
 
-  async function handleSaveNewCreateContact(data: NewCycleFormData) {
+  async function createNewContact(data: NewCycleFormData) {
     try {
-      // const { nome, sobrenome, telefone, datanasci, endereco, email } = data;
-
-      /*const response =*/
-      await api.post("/contato", data).then(() => {
-        handleConfirmFormBackNavigate();
+      await api.post("/contatos", data).then(() => {
+        alert("Contato Criado!");
+        handleBackContacts();
       });
     } catch (error) {
+      alert("Algo deu errado! Contato não foi criado.");
       console.log(error);
     }
 
     reset();
+  }
+
+  async function updateContact(data: NewCycleFormData) {
+    try {
+      await api.put(`/contatos/${location.state.id}`, data).then(() => {
+        alert("Contato atualizado!");
+        handleBackContacts();
+      });
+    } catch (error) {
+      alert("Algo deu errado! Contato não atualizado.");
+      console.log(error);
+    }
+
+    reset();
+  }
+
+  function handleSaveOrUpdate(data: any) {
+    if (!location.state.id) {
+      createNewContact(data);
+    } else {
+      updateContact(data);
+    }
   }
 
   return (
@@ -84,7 +109,7 @@ export function Cadastro({ setContatos }: any) {
             },
             mb: 1,
           }}
-        />
+        ></TextField>
       </Grid>
       <Grid item xs={12}>
         <TextField
@@ -186,17 +211,18 @@ export function Cadastro({ setContatos }: any) {
         <Grid item xs={1}>
           <Button
             onClick={handleBackNavigate}
-            variant="outlined"
+            variant="contained"
+            color="error"
             sx={{
               width: "5vw",
             }}
           >
-            Voltar
+            Cancelar
           </Button>
         </Grid>
         <Grid item xs={1}>
           <Button
-            onClick={handleSubmit(handleSaveNewCreateContact)}
+            onClick={handleSubmit(handleSaveOrUpdate)}
             variant="contained"
             startIcon={<Add />}
             sx={{

@@ -10,30 +10,39 @@ export interface Contato {
   id: number;
   nome: string;
   sobrenome: string;
-  telefone: string;
 }
 
-export interface ContatosProps {
-  contatos: Contato[];
-  setContatos: (contatos: Contato[]) => void;
+interface InputFormContact {
+  id: number;
+  nome: string;
+  sobrenome: string;
+  telefone: string;
+  datanasci: string;
+  endereco: string;
+  email: string;
+}
+
+export interface ContatosAction {
+  contato: Contato[];
   listarContatos: () => Promise<void>;
+  createContato: (data: InputFormContact) => Promise<void>;
 }
 
 export function ListaContatos() {
   const [searchValue, setSearchValue] = useState("");
-  const [contatos, setContatos] = useState<Contato[]>([]);
-  const [contatosFilter, setContatosFilter] = useState(contatos);
+  const [contato, setContato] = useState<Contato[]>([]);
+  const [contatosFilter, setContatosFilter] = useState(contato);
 
   const navigate = useNavigate();
 
-  function handleNavigate() {
+  function handleNavigateNewForm() {
     navigate("/cadastro");
   }
 
   async function listarContatos() {
     try {
-      await api.get("/contato/").then((response) => {
-        setContatos(response.data);
+      await api.get("/contatos").then((response) => {
+        setContato(response.data);
         setContatosFilter(response.data);
       });
     } catch (error) {
@@ -46,7 +55,7 @@ export function ListaContatos() {
   }, []);
 
   function handleSearch(valueToFilter: string) {
-    const filtro = contatos.filter((contato: Contato) => {
+    const filtro = contato.filter((contato: Contato) => {
       return contato.nome.toLowerCase().includes(valueToFilter);
     });
 
@@ -68,9 +77,10 @@ export function ListaContatos() {
           borderTopRightRadius: 10,
           pl: 2,
           pr: 2,
+          pt: 1,
         }}
       >
-        <Grid item xs={9}>
+        <Grid item xs={9} boxShadow={1} borderRadius={1}>
           <SearchBar
             width="100%"
             placeholder="Pesquise um contato"
@@ -80,7 +90,7 @@ export function ListaContatos() {
         </Grid>
         <Grid item xs={1} pt={1} pb={1}>
           <Button
-            onClick={handleNavigate}
+            onClick={handleNavigateNewForm}
             variant="contained"
             sx={{
               backgroundColor: "#FFA051",
@@ -129,8 +139,18 @@ export function ListaContatos() {
               style={{
                 fontWeight: 600,
               }}
+              sx={{ display: "flex", justifyContent: "center", pl: 17 }}
             >
               Telefone
+            </Typography>
+
+            <Typography
+              style={{
+                fontWeight: 600,
+              }}
+              sx={{ display: "flex", justifyContent: "flex-end", pr: 12.5 }}
+            >
+              Ações
             </Typography>
           </Box>
         </Grid>
@@ -159,11 +179,12 @@ export function ListaContatos() {
               boxShadow: 1,
             }}
           >
-            {contatosFilter.map((contatos, index) => {
+            {contatosFilter.map((contato, index) => {
               return (
                 <RowContact
-                  contatos={contatos}
-                  setContatos={setContatos}
+                  contato={contato}
+                  setContato={setContato}
+                  listarContatos={listarContatos}
                   key={index}
                 />
               );

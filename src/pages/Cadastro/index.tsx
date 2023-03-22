@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { CabecalhoContato } from "../../components/CabecalhoContato";
-import { Cadastro } from "../../components/Cadastro";
+import { Cadastro } from "./Cadastro";
 import { ContatoPage } from "../ContatoPage";
 
 export function CadastrarContato() {
@@ -9,10 +9,6 @@ export function CadastrarContato() {
       <CabecalhoContato />
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "stretch",
-          alignItems: "start",
-          flexDirection: "column",
           p: 5,
           backgroundColor: "#e5e7eb",
           height: "100vh",
