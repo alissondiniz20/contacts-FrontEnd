@@ -60,10 +60,13 @@ export function Cadastro() {
 
   async function updateContact(data: NewCycleFormData) {
     try {
-      await api.put(`/contatos/${location.state.id}`, data).then(() => {
-        alert("Contato atualizado!");
-        handleBackContacts();
-      });
+      const confirmUpdate = confirm("Confirmar novos dados do contato?");
+
+      if (confirmUpdate) {
+        await api.put(`/contatos/${location.state.id}`, data).then(() => {
+          handleBackContacts();
+        });
+      }
     } catch (error) {
       alert("Algo deu errado! Contato não atualizado.");
       console.log(error);
@@ -155,7 +158,7 @@ export function Cadastro() {
           variant="outlined"
           required
           size="small"
-          {...register("datanasci" /*, { valueAsDate: true }*/)}
+          {...register("datanasci")}
           sx={{
             backgroundColor: "#f5f5f5",
             "& .MuiInputLabel-root": { color: "#2c2966" },

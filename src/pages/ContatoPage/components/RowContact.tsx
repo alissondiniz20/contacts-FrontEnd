@@ -14,14 +14,18 @@ export function RowContact({ contato, listarContatos }: any) {
   };
 
   function handleDeletarContato() {
-    deletarContato();
+    if (confirmDelete()) {
+      deletarContato();
+    }
   }
+
+  const confirmDelete = () => {
+    return confirm("Tem certeza que quer excluir este contato?");
+  };
 
   const navigate = useNavigate();
 
   function handleUpdateContact() {
-    // console.log(`Contato ID: ${contato.id}`);
-
     navigate("/cadastro", { state: contato });
   }
 
